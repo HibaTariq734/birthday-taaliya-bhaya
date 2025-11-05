@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday Taalia Bhaya! 🎉</title>
+    <style>
+        /* Body and background */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #fceabb, #f8b500, #ff6f91);
+            text-align: center;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+            text-shadow: 3px 3px 8px #000;
+        }
+
+        /* Profile Image */
+        img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            margin: 20px 0;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        }
+
+        /* Wishes */
+        .wish {
+            font-size: 1.5em;
+            margin: 20px auto;
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .wish:hover {
+            transform: scale(1.05);
+        }
+
+        /* Button */
+        button {
+            padding: 15px 30px;
+            font-size: 1em;
+            margin-top: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #ff6f91;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff3c7e;
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            top: -10px;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity:1;}
+            100% { transform: translateY(100vh) rotate(360deg); opacity:0;}
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎉 Happy Birthday Taalia Bhaya! 🎉</h1>
+
+    <!-- FB Profile Image -->
+    <img src="https://via.placeholder.com/220" alt="Taalia Bhaya Profile Picture">
+
+    <!-- Birthday Wishes -->
+    <div class="wish" id="wish">Wishing you endless happiness, laughter, and yummy cake today! 🍰✨</div>
+
+    <button onclick="showWish()">Get Another Fun Wish 🎁</button>
+
+    <!-- Confetti Container -->
+    <div id="confetti-container"></div>
+
+    <script>
+        // Array of fun birthday wishes
+        const wishes = [
+            "May your birthday be as amazing as your Facebook posts! 😎🎂",
+            "Cake, gifts, laughter... Hope you get all your favorites today! 🎁🎉",
+            "Happy Birthday! May your notifications be full of love ❤️✨",
+            "Wishing you a day full of memes, sweets, and endless fun! 😄🍰",
+            "Keep shining and smiling like your profile picture! 🌟😊",
+            "Cheers to another year of awesomeness and adventures! 🥳🎈"
+        ];
+
+        // Show random wish
+        function showWish() {
+            const randomIndex = Math.floor(Math.random() * wishes.length);
+            document.getElementById("wish").textContent = wishes[randomIndex];
+        }
+
+        // Confetti effect
+        function createConfetti() {
+            const container = document.getElementById("confetti-container");
+            const colors = ["#ff6f91","#ffcb77","#ffe066","#6a4c93","#1982c4"];
+            for(let i=0;i<100;i++){
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                confetti.style.left = Math.random() * window.innerWidth + "px";
+                confetti.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+                confetti.style.animationDuration = (3 + Math.random()*3) + "s";
+                confetti.style.width = (5 + Math.random()*10) + "px";
+                confetti.style.height = confetti.style.width;
+                container.appendChild(confetti);
+            }
+        }
+
+        createConfetti();
+    </script>
+
+</body>
+</html>
